@@ -1,6 +1,3 @@
-// PROG2 VT2023, Inlämningsuppgift, del 2
-// Grupp 151
-// Martin Nyman many5992
 
 import javafx.scene.shape.Circle;
 import javafx.scene.paint.Color;
@@ -13,7 +10,7 @@ public class Place extends Circle {
 
     private boolean toggle = false;
 
-    public Place(String name, double x, double y){
+    public Place(String name, double x, double y) {
         super(10);
         this.name = name;
         this.x = x;
@@ -33,18 +30,18 @@ public class Place extends Circle {
         return y;
     }
 
-    //Toggle color
-    public void toggle(){
-        if(!toggle){
+    // Toggle color
+    public void toggle() {
+        if (!toggle) {
             setFill(Color.RED);
-        }else{
+        } else {
             setFill(Color.BLUE);
         }
-        toggle= !toggle;
+        toggle = !toggle;
     }
-    
-    //Return toggle for selection
-    public boolean isToggled(){
+
+    // Return toggle for selection
+    public boolean isToggled() {
         return toggle;
     }
 

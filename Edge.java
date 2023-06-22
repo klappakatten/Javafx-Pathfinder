@@ -1,6 +1,4 @@
-// PROG2 VT2023, Inlämningsuppgift, del 1
-// Grupp 151
-// Martin Nyman many5992
+
 import java.util.Objects;
 
 public class Edge<T> {
@@ -41,7 +39,8 @@ public class Edge<T> {
 
     @Override
     public boolean equals(Object obj) {
-        return obj instanceof Edge<?> && ((Edge<?>) obj).getDestination().equals(destination) && name.equals(((Edge<?>) obj).getName());
+        return obj instanceof Edge<?> && ((Edge<?>) obj).getDestination().equals(destination)
+                && name.equals(((Edge<?>) obj).getName());
     }
 
     @Override

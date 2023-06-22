@@ -1,6 +1,4 @@
-// PROG2 VT2023, Inlämningsuppgift, del 1
-// Grupp 151
-// Martin Nyman many5992
+
 import java.util.*;
 
 public class ListGraph<T> implements Graph<T> {
@@ -9,12 +7,13 @@ public class ListGraph<T> implements Graph<T> {
 
     @Override
     public void add(T node) {
-        if (nodes.containsKey(node)) return;
+        if (nodes.containsKey(node))
+            return;
         Set<Edge<T>> edges = new HashSet<>();
         nodes.put(node, edges);
     }
 
-    //Remove node from graph
+    // Remove node from graph
     @Override
     public void remove(T node) {
         if (!nodes.containsKey(node)) {
@@ -35,7 +34,7 @@ public class ListGraph<T> implements Graph<T> {
         nodes.remove(node);
     }
 
-    //Connect node with edge
+    // Connect node with edge
     @Override
     public void connect(T node1, T node2, String name, int weight) {
         if (!nodes.containsKey(node1) || !nodes.containsKey(node2)) {
@@ -56,10 +55,9 @@ public class ListGraph<T> implements Graph<T> {
         nodes.put(node1, node1Edges);
         nodes.put(node2, node2Edges);
 
-
     }
 
-    //Disconnect node between nodes
+    // Disconnect node between nodes
     @Override
     public void disconnect(T node1, T node2) {
         if (!nodes.containsKey(node1) || !nodes.containsKey(node2)) {
@@ -86,8 +84,8 @@ public class ListGraph<T> implements Graph<T> {
             }
         }
     }
-    
-    //Set new weight in edge
+
+    // Set new weight in edge
     @Override
     public void setConnectionWeight(T node1, T node2, int weight) {
         if (!nodes.containsKey(node1) || !nodes.containsKey(node2)) {
@@ -96,13 +94,13 @@ public class ListGraph<T> implements Graph<T> {
             throw new IllegalStateException();
         }
 
-        //Set first edge
+        // Set first edge
         for (Edge<T> edge : nodes.get(node1)) {
             if (edge.getDestination().equals(node2)) {
                 edge.setWeight(weight);
             }
         }
-        //Set second edge
+        // Set second edge
         for (Edge<T> edge : nodes.get(node2)) {
             if (edge.getDestination().equals(node1)) {
                 edge.setWeight(weight);
@@ -110,12 +108,12 @@ public class ListGraph<T> implements Graph<T> {
         }
     }
 
-    //Get list of nodes
+    // Get list of nodes
     @Override
     public Set<T> getNodes() {
         return Collections.unmodifiableSet(nodes.keySet());
     }
-    
+
     @Override
     public Collection<Edge<T>> getEdgesFrom(T node) {
         if (!nodes.containsKey(node)) {
@@ -123,8 +121,8 @@ public class ListGraph<T> implements Graph<T> {
         }
         return Collections.unmodifiableCollection(nodes.get(node));
     }
-    
-    //Get edges between nodes
+
+    // Get edges between nodes
     @Override
     public Edge<T> getEdgeBetween(T node1, T node2) {
         if (!nodes.containsKey(node1) || !nodes.containsKey(node2)) {
@@ -156,7 +154,7 @@ public class ListGraph<T> implements Graph<T> {
         return sb.toString();
     }
 
-    //Check if there is a path available with depth first search
+    // Check if there is a path available with depth first search
     @Override
     public boolean pathExists(T from, T to) {
         if (!nodes.containsKey(from) || !nodes.containsKey(to)) {
@@ -194,7 +192,7 @@ public class ListGraph<T> implements Graph<T> {
         return gatherPath(from, to, connections);
     }
 
-    //Get path as list from search
+    // Get path as list from search
     private List<Edge<T>> gatherPath(T from, T to, Map<T, T> connections) {
         LinkedList<Edge<T>> path = new LinkedList<>();
         T current = to;

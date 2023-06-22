@@ -1,6 +1,3 @@
-// PROG2 VT2023, Inlämningsuppgift, del 2
-// Grupp 151
-// Martin Nyman many5992
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

@@ -1,6 +1,3 @@
-// PROG2 VT2023, Inlämningsuppgift, del 2
-// Grupp 151
-// Martin Nyman many5992
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -20,14 +17,14 @@ public class NameAlert extends Alert {
         grid.setPadding(new Insets(10));
         grid.setHgap(5);
 
-        //Input
+        // Input
         grid.addRow(0, new Label("Name of place:"), nameField);
         setHeaderText(null);
         setTitle("Name");
         getDialogPane().setContent(grid);
     }
 
-    public String  getName() {
+    public String getName() {
         return nameField.getText();
     }
 }
